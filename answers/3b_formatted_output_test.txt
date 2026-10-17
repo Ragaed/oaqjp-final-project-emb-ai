@@ -1,0 +1,12 @@
+theia@theiadocker-rafaelalvesp:/home/project/fi
+nal_project$ python3
+Python 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from EmotionDetection.emotion_detection import emotion_detector
+>>> emotion_detection('I am really mad about this')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'emotion_detection' is not defined. Did you mean: 'emotion_detector'?
+>>> emotion_detector('I am really mad about thi
+s')
+{'anger': 0.6674731, 'disgust': 0.022848725, 'fear': 0.09749009, 'joy': 0.011863918, 'sadness': 0.1953058, 'dominant_emotion': 'anger'}
