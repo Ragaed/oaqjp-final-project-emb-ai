@@ -23,10 +23,11 @@ def get_emotion_detection():
     text_to_analyse = request.args.get('textToAnalyze')
     emotion_analysis = emotion_detector(text_to_analyse)
 
-    if (emotion_analysis['dominant_emotion'] is None):
+    if emotion_analysis['dominant_emotion'] is None:
         return 'Invalid text! Please try again!'
 
     return emotion_analysis
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
