@@ -2,7 +2,8 @@
 Page for emotion detector
 '''
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from EmotionDetection.emotion_detection import emotion_detector
 
 app = Flask(__name__)
 
@@ -13,13 +14,16 @@ def load_index_page():
     '''
     return render_template('index.html')
 
-@app.route('/emotionDetector', methods=['POST'])
+@app.route('/emotionDetector', methods=['GET'])
 def get_emotion_detection():
     '''
     Returns the emotion detection for the value
     in the form
     '''
-    return '', 505 #NEED TO Be IMPLEMENTED
+    text_to_analyse = request.args.get('textToAnalyze')
+    emotion_analysis = emotion_detector(text_to_analyse)
+
+    return emotion_analysis
 
 if __name__ == '__main__':
     app.run(debug=True)
